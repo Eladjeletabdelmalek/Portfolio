@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eladjelet Abdelmalek | Data Science &amp; AI</title>
+<meta name="description" content="Data Science & AI student, Kaggle competitor and Flutter developer.">
+<style>
+:root{--bg:#000;--fg:#fff;--mute:#9a9da3;--line:rgba(255,255,255,.18);--pad:clamp(20px,5vw,72px);
+--font:"Helvetica Neue",Helvetica,Arial,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+h1,h2,h3{font-weight:500;text-transform:uppercase;letter-spacing:.14em;line-height:1.15}
+
+/* nav */
+header{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:18px var(--pad);background:linear-gradient(#000c,#0000)}
+.brand{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600}
+nav{display:none;gap:28px}
+nav a{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);transition:color .2s}
+nav a:hover{color:var(--fg)}
+@media(min-width:760px){nav{display:flex}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+padding:120px var(--pad) clamp(56px,10vh,110px);overflow:hidden;
+background:radial-gradient(120% 70% at 50% 115%,#1b2a44 0%,#0a1020 38%,#000 70%)}
+#sky{position:absolute;inset:0;width:100%;height:100%}
+.hero>*:not(canvas){position:relative}
+.hero h1{font-size:clamp(2.2rem,8.5vw,6.6rem);letter-spacing:.1em;max-width:14ch}
+.role{margin-top:22px;font-size:clamp(.75rem,1.6vw,.95rem);letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.pitch{margin-top:18px;max-width:46ch;font-size:clamp(1rem,2vw,1.2rem);color:#dfe1e5}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.btn{display:inline-block;padding:14px 28px;border:1px solid var(--fg);font-size:.72rem;letter-spacing:.22em;
+text-transform:uppercase;transition:background .25s,color .25s}
+.btn:hover{background:var(--fg);color:#000}
+.btn.solid{background:var(--fg);color:#000}
+.btn.solid:hover{background:transparent;color:var(--fg)}
+.hero .in{opacity:0;transform:translateY(18px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .in:nth-child(2){animation-delay:.15s}.hero .in:nth-child(3){animation-delay:.3s}.hero .in:nth-child(4){animation-delay:.45s}
+@keyframes up{to{opacity:1;transform:none}}
+
+/* sections */
+section{padding:clamp(72px,12vw,140px) var(--pad);border-top:1px solid var(--line)}
+.wrap{max-width:1120px;margin:0 auto}
+h2{font-size:clamp(1.4rem,3.4vw,2.4rem);margin-bottom:clamp(32px,5vw,60px)}
+.lead{max-width:62ch;font-size:clamp(1.02rem,1.8vw,1.2rem);color:#dfe1e5}
+.facts{display:grid;gap:28px;margin-top:48px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.facts strong{display:block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:500;margin-bottom:6px}
+
+/* experience */
+.job{display:grid;gap:8px;padding:30px 0;border-bottom:1px solid var(--line)}
+.job:first-of-type{padding-top:0}
+.job time{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.job h3{font-size:1.02rem;letter-spacing:.1em}
+.job .org{color:var(--mute);font-size:.95rem}
+.job p{max-width:64ch;color:#dfe1e5;margin-top:6px}
+@media(min-width:820px){.job{grid-template-columns:220px 1fr;gap:40px}}
+
+/* honors + projects */
+.grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
+.cell{background:var(--bg);padding:30px 26px;transition:background .25s}
+.cell:hover{background:#0d0f14}
+.cell h3{font-size:.9rem;letter-spacing:.12em;margin-bottom:10px}
+.cell p{color:#c9ccd1;font-size:.95rem}
+.metric{display:block;margin-top:14px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.sub{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:56px 0 18px;font-weight:500}
+.sub:first-of-type{margin-top:0}
+.more{margin-top:26px;color:var(--mute);max-width:70ch;font-size:.95rem}
+
+/* skills */
+.skills{display:grid;gap:40px}
+@media(min-width:820px){.skills{grid-template-columns:1fr 1fr}}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tags li{list-style:none;border:1px solid var(--line);padding:8px 14px;font-size:.85rem;color:#dfe1e5;transition:border-color .2s}
+.tags li:hover{border-color:var(--fg)}
+.skills h3{font-size:.8rem;letter-spacing:.22em;color:var(--mute);margin-bottom:18px;font-weight:500}
+.edu li{list-style:none;padding:12px 0;border-bottom:1px solid var(--line);color:#dfe1e5;font-size:.95rem}
+.edu li span{display:block;color:var(--mute);font-size:.82rem}
+
+/* contact */
+.contact h2{font-size:clamp(1.8rem,6vw,4rem);letter-spacing:.1em}
+.links{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.mail{display:inline-block;margin-top:8px;font-size:clamp(1rem,2.6vw,1.5rem);border-bottom:1px solid var(--fg);padding-bottom:4px;word-break:break-all}
+footer{padding:28px var(--pad);border-top:1px solid var(--line);color:var(--mute);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero .in{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#top">E. Abdelmalek</a>
+  <nav aria-label="Primary">
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero" style="border-top:0">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <h1 class="in">Eladjelet Abdelmalek</h1>
+  <p class="role in">Data Science &amp; AI Student &middot; Kaggle Competitor &middot; Flutter Developer</p>
+  <p class="pitch in">Python and PyTorch for modeling, FastAPI and Flutter for shipping it.</p>
+  <div class="cta in">
+    <a class="btn solid" href="#projects">View projects</a>
+    <a class="btn" href="#contact">Get in touch</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p class="lead">5th-year Data Science &amp; AI student with a 3rd-place datathon finish among competing teams. I completed an AI internship at Djezzy building a TTS/STT IVR system, led a 30-student AI department at ITC Club, and actively compete across multiple simultaneous Kaggle competitions.</p>
+    <div class="facts">
+      <div><strong>Studying</strong>Engineering in Data Science &amp; AI, Saad Dahlab University (expected 2027)</div>
+      <div><strong>Competing</strong>Kaggle, several competitions at once</div>
+      <div><strong>Languages</strong>Arabic (native), French (intermediate), English (intermediate)</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <article class="job">
+      <time>03/2026 &ndash; 05/2026</time>
+      <div>
+        <h3>AI-Driven IVR System</h3>
+        <div class="org">Djezzy &middot; Internship</div>
+        <p>Designed and implemented an AI-driven IVR system using Text-to-Speech and Speech-to-Text architectures. Integrated Darija/Arabic linguistic nuances to optimize user interaction and accessibility, and delivered the full project on schedule.</p>
+      </div>
+    </article>
+    <article class="job">
+      <time>2024 &ndash; Present</time>
+      <div>
+        <h3>Member / Mobile Developer</h3>
+        <div class="org">Cambridge Brainex</div>
+        <p>Contributed to development and optimization of machine learning pipelines. Represented the team at international events including the African Startup Conference.</p>
+      </div>
+    </article>
+    <article class="job">
+      <time>2022 &ndash; Present</time>
+      <div>
+        <h3>AI Department Leader (2024&ndash;25) / Member (since 2022)</h3>
+        <div class="org">ITC Club</div>
+        <p>Directed the AI department, mentoring 30+ students through structured deep learning courses and hands-on projects. Organized club-wide ML challenges.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects &amp; Honors</h2>
+
+    <h3 class="sub">Honors &amp; hackathons</h3>
+    <div class="grid">
+      <div class="cell"><h3>3rd Place, ENSIA Datathon</h3><p>1st on the special omics challenge.</p><span class="metric">06/2026 &middot; 97% accuracy</span></div>
+      <div class="cell"><h3>4th Place, Databounty Datathon</h3><p>3rd on the OS anomaly detection system.</p><span class="metric">04/2025 &middot; 93% accuracy</span></div>
+      <div class="cell"><h3>Strapplife Hackathon</h3><p>Built an assistive tool for visually impaired users.</p><span class="metric">10/2025</span></div>
+      <div class="cell"><h3>ITC Hackwave, 2nd Edition</h3><p>Built a customer support solution.</p><span class="metric">09/2024</span></div>
+    </div>
+
+    <h3 class="sub">Selected projects</h3>
+    <div class="grid">
+      <div class="cell"><h3>Facial Expression Detector</h3><p>Real-time computer vision model built with a CNN.</p><span class="metric">94% classification accuracy</span></div>
+      <div class="cell"><h3>Hate Speech Detector</h3><p>NLP text classification pipeline for online content.</p><span class="metric">89% accuracy</span></div>
+      <div class="cell"><h3>Sentiment Analysis Model &amp; Dataset</h3><p>Covers social media and movie reviews. I also built and released a larger generalized training dataset.</p><span class="metric">90&ndash;91% accuracy</span></div>
+      <div class="cell"><h3>Snake Game Agent</h3><p>Autonomous reinforcement learning agent using Q-Learning and SARSA.</p><span class="metric">82% performance with Q-Learning</span></div>
+      <div class="cell"><h3>Synthetic Data Generator</h3><p>Deep learning system generating high-fidelity synthetic data for privacy-preserving ML pipelines.</p></div>
+      <div class="cell"><h3>Medical Appointment App</h3><p>Team project in Flutter: a patient appointment system.</p></div>
+    </div>
+    <p class="more">Also: Customer Churn Prediction, Movie Recommendation System, Customer Service Chatbot, Diabetes Analysis Dashboard, Hotel Booking EDA, Car Rental App, Doctor Appointment App.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div>
+        <h3>ML / Data Science</h3>
+        <ul class="tags">
+          <li>Python</li><li>PyTorch</li><li>TensorFlow</li><li>Scikit-learn</li><li>Pandas</li><li>Deep Learning</li><li>Computer Vision</li><li>NLP</li><li>Reinforcement Learning</li><li>RAG</li><li>LLM Pipelines</li><li>Recommendation Systems</li><li>Anomaly Detection</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Dev / Production</h3>
+        <ul class="tags">
+          <li>Dart</li><li>Java</li><li>C</li><li>SQL</li><li>Flutter</li><li>FastAPI</li><li>Streamlit</li><li>Git / GitHub</li><li>API Integration</li><li>SQL Databases</li>
+        </ul>
+      </div>
+      <div style="grid-column:1/-1">
+        <h3>Education &amp; certifications</h3>
+        <ul class="edu">
+          <li>Engineering in Data Science &amp; AI, Saad Dahlab University<span>5th year, expected 2027</span></li>
+          <li>Supervised Machine Learning: Regression and Classification<span>DeepLearning.AI &amp; Stanford Online (Andrew Ng), 10/2024 &middot; <a href="https://coursera.org/verify/MO2SOULSOMIK" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Verify on Coursera</a></span></li>
+          <li>Python (Basic), skill certification<span>HackerRank, 09/2024</span></li>
+          <li>8 Kaggle Learn certifications<span>Intro/Intermediate ML, Feature Engineering, Data Cleaning, Data Visualization, ML Explainability, Deep Learning, Computer Vision</span></li>
+          <li>Data Literacy Fundamentals<span>DataCamp, 10/2025</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="lead">Open to collaborations, competitions and new projects.</p>
+    <p style="margin-top:28px"><a class="mail" href="mailto:eladjeletabdelmalek09@gmail.com">eladjeletabdelmalek09@gmail.com</a></p>
+    <p style="margin-top:18px"><a href="tel:+213778077853" class="lead">+213 778077853</a></p>
+    <div class="links">
+      <!-- Add your URL to href and delete the "hidden" attribute to show each button. -->
+      <a class="btn" href="https://www.linkedin.com/in/abdelmalek-eladjelet-755515205/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/Eladjeletabdelmalek" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.kaggle.com/abdelmalekeladjelet" target="_blank" rel="noopener">Kaggle</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>&copy; <span id="y">2026</span> Eladjelet Abdelmalek</footer>
+
+<script>
+(function(){
+  document.getElementById('y').textContent=new Date().getFullYear();
+  var c=document.getElementById('sky'),x=c.getContext('2d'),W,H,stars=[],dpr=Math.min(devicePixelRatio||1,2);
+  var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){var r=c.parentNode.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    stars=[];var n=Math.round(W*H/5500);for(var i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H*.85,r:Math.random()*1.1+.2,a:Math.random()*.6+.3});draw(0)}
+  var sat={t:0};
+  function draw(t){
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<stars.length;i++){var s=stars[i];x.globalAlpha=s.a;x.fillStyle='#fff';x.beginPath();x.arc(s.x,s.y,s.r,0,6.283);x.fill()}
+    x.globalAlpha=1;
+    if(!calm){ /* a single satellite pass, repeating slowly */
+      var p=((t/1000)%14)/9; if(p<1){var px=-40+p*(W+80),py=H*.08+p*H*.22;
+        var g=x.createLinearGradient(px-140,py-140*.28,px,py);g.addColorStop(0,'rgba(255,255,255,0)');g.addColorStop(1,'rgba(255,255,255,.85)');
+        x.strokeStyle=g;x.lineWidth=1.2;x.beginPath();x.moveTo(px-140,py-140*.28);x.lineTo(px,py);x.stroke();
+        x.fillStyle='#fff';x.beginPath();x.arc(px,py,1.6,0,6.283);x.fill()}
+      requestAnimationFrame(draw)}
+  }
+  addEventListener('resize',size);size();if(!calm)requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
